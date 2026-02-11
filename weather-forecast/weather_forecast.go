@@ -8,7 +8,7 @@ var (
 	CurrentLocation  string
 )
 
-//Forecast funtion will return the given cities weather. 
+//Forecast funtion will return the given cities weather.
 func Forecast(city, condition string) string {
 	CurrentLocation, CurrentCondition = city, condition
 	return CurrentLocation + " - current weather condition: " + CurrentCondition
