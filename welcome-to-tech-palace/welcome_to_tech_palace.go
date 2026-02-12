@@ -1,6 +1,7 @@
 package techpalace
 
 import (
+	"fmt"
 	s "strings"
 )
 
@@ -11,13 +12,11 @@ func WelcomeMessage(customer string) string {
 
 // AddBorder adds a border to a welcome message.
 func AddBorder(welcomeMsg string, numStarsPerLine int) string {
-	str := s.Repeat("*", numStarsPerLine) + "\n" + welcomeMsg + "\n" + s.Repeat("*", numStarsPerLine)
-	return str
+	border := s.Repeat("*", numStarsPerLine)
+	return fmt.Sprintf("%s\n%s\n%s", border, welcomeMsg, border)
 }
 
 // CleanupMessage cleans up an old marketing message.
 func CleanupMessage(oldMsg string) string {
-	starCleanedString := s.ReplaceAll(oldMsg, "*", "")
-	trimedString := s.TrimSpace(starCleanedString)
-	return trimedString
+	return s.Trim(oldMsg, "* \n")
 }
